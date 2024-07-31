@@ -1,0 +1,40 @@
+name: Deploy Vue app to GitHub Pages
+on:
+    push:
+        branches: [$default-branch]
+    workflow_dispatch:
+    # TODO: Avoid build when modifying non-build files e.g. workflows
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4
+            - name: Setup Node
+              uses: actions/setup-node@v4
+              with:
+                node-version: '20'
+            - name: Install dependencies
+              run: npm ci
+            - name: Build Vue app
+              run: npm run build
+            # What if we do not configure pages?
+            # - name: Setup Pages
+            #   uses: actions/configure-pages@v5
+            - name: Upload artifact
+              uses: actions/upload-pages-artifact@v3
+              with:
+                path: ./dist
+    deploy:
+        needs: build
+        permissions:
+            pages: write
+            id-token: write
+        environment:
+            name: github-pages
+            url: ${{ steps.deployment.outputs.page_url }}
+        runs-on: ubuntu-latest
+        steps:
+            - name: Deploy to GitHub Pages
+              id: deployment
+              uses: actions/deploy-pages@v4
