@@ -1,7 +1,7 @@
 name: Deploy Vue app to GitHub Pages
 on:
     push:
-        branches: [$default-branch]
+        branches: develop
     workflow_dispatch:
     # TODO: Avoid build when modifying non-build files e.g. workflows
 jobs:
