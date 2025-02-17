@@ -36,6 +36,13 @@ export default {
             roles: [
                 {
                     name: 'Software Engineer',
+                    company: 'Oracle Corporation',
+                    date: 'Sep 2024 - Present',
+                    description: "Oracle Linux YUM Service",
+                    work_model: "Remote",
+                },
+                {
+                    name: 'Software Engineer',
                     company: 'Intel Corporation',
                     date: 'Jan 2022 - Jul 2023',
                     description: "RTL Development and CI/CD",
