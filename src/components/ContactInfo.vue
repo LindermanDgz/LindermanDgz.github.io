@@ -2,8 +2,8 @@
     <v-container>
         <v-row class="text-center">
             <v-col></v-col>
-            <v-col>
-                <v-avatar image="@/assets/profile.jpeg" size="200"></v-avatar>
+            <v-col cols="10" xxl="4" xl="4" lg="4" md="6" sm="6" xs="10">
+                <v-img src="@/assets/profile.jpeg" rounded="circle"></v-img>
             </v-col>
             <v-col></v-col>
         </v-row>
