@@ -1,33 +1,30 @@
 <template>
     <v-container>
-        <v-row>
-            <v-col cols="12" class="text-center">
-                Experience
-            </v-col>
-            <v-col cols="12" lg="1" xl="2" xxl="3"> </v-col>
+        <v-row class="text-center">
             <v-col>
-                <v-timeline side="end" align="start" truncate-line="start">
-                    <v-timeline-item v-for="(role, i) in roles" :key="i" dot-color="blue-lighten-3" fill-dot
-                        icon="mdi-briefcase" size="large"
-                        :icon-color="$vuetify.theme.name === 'light' ? 'white' : 'black'" width="100%">
-                        <template v-slot:opposite>
-                            <v-card-text v-text="role.date">
-                            </v-card-text>
-                        </template>
-                        <v-card variant="tonal">
-                            <v-card-title v-text="role.name">
-                            </v-card-title>
-                            <v-card-subtitle>
-                                <v-icon icon="mdi-domain"></v-icon> <v-text v-text="role.company"></v-text>
-                                <v-spacer></v-spacer>
-                                <v-icon icon="mdi-map-marker"></v-icon> <v-text v-text="role.work_model"></v-text>
-                            </v-card-subtitle>
-                            <v-card-text v-text="role.description"></v-card-text>
-                        </v-card>
-                    </v-timeline-item>
-                </v-timeline>
+                Job Experience
             </v-col>
-            <v-col cols="12" lg="1" xl="2" xxl="3"> </v-col>
+        </v-row>
+        <v-row>
+            <v-timeline side="end" align="start" truncate-line="start">
+                <v-timeline-item v-for="(role, i) in roles" :key="i" dot-color="blue-lighten-3" fill-dot
+                    icon="mdi-briefcase" :icon-color="$vuetify.theme.name === 'light' ? 'white' : 'black'" width="100%">
+                    <template v-slot:opposite>
+                        <v-card-text v-text="role.date">
+                        </v-card-text>
+                    </template>
+                    <v-card variant="tonal">
+                        <v-card-title v-text="role.name">
+                        </v-card-title>
+                        <v-card-subtitle>
+                            <v-icon icon="mdi-domain"></v-icon> <v-text v-text="role.company"></v-text>
+                            <v-spacer></v-spacer>
+                            <v-icon icon="mdi-map-marker"></v-icon> <v-text v-text="role.work_model"></v-text>
+                        </v-card-subtitle>
+                        <v-card-text v-text="role.description"></v-card-text>
+                    </v-card>
+                </v-timeline-item>
+            </v-timeline>
         </v-row>
     </v-container>
 </template>
