@@ -6,25 +6,39 @@
             </v-col>
         </v-row>
         <v-row>
-            <v-timeline side="end" align="start" truncate-line="start">
-                <v-timeline-item v-for="(role, i) in roles" :key="i" dot-color="blue-lighten-3" fill-dot
-                    icon="mdi-briefcase" :icon-color="$vuetify.theme.name === 'light' ? 'white' : 'black'" width="100%">
-                    <template v-slot:opposite>
-                        <v-card-text v-text="role.date">
-                        </v-card-text>
-                    </template>
-                    <v-card variant="tonal">
-                        <v-card-title v-text="role.name">
-                        </v-card-title>
-                        <v-card-subtitle>
-                            <v-icon icon="mdi-domain"></v-icon> <v-text v-text="role.company"></v-text>
-                            <v-spacer></v-spacer>
-                            <v-icon icon="mdi-map-marker"></v-icon> <v-text v-text="role.work_model"></v-text>
-                        </v-card-subtitle>
-                        <v-card-text v-text="role.description"></v-card-text>
-                    </v-card>
-                </v-timeline-item>
-            </v-timeline>
+            <v-col class="d-none d-md-block">
+                <v-timeline truncate-line="start">
+                    <v-timeline-item v-for="(role, i) in roles" :key="i" dot-color="blue-lighten-3" fill-dot
+                        icon="mdi-briefcase" :icon-color="$vuetify.theme.name === 'light' ? 'white' : 'black'"
+                        width="100%">
+                        <template v-slot:opposite>
+                            <p v-text="`${role.date.start} - ${role.date.end}`"></p>
+                        </template>
+                        <v-card class="text-center" variant="tonal">
+                            <v-card-title v-text="role.name">
+                            </v-card-title>
+                            <v-card-subtitle>
+                                <v-icon icon="mdi-domain"></v-icon> <v-text v-text="role.company"></v-text>
+                                <v-spacer></v-spacer>
+                                <v-icon icon="mdi-map-marker"></v-icon> <v-text v-text="role.work_model"></v-text>
+                            </v-card-subtitle>
+                            <v-card-text v-text="role.description"></v-card-text>
+                        </v-card>
+                    </v-timeline-item>
+                </v-timeline>
+            </v-col>
+            <v-col class="d-md-none text-center">
+                <v-card v-for="(role, i) in roles" :key="i" variant="tonal" class="mb-4">
+                    <v-card-title v-text="role.name">
+                    </v-card-title>
+                    <v-card-subtitle>
+                        <v-icon icon="mdi-domain"></v-icon> <v-text v-text="role.company"></v-text>
+                        <v-spacer></v-spacer>
+                        <v-icon icon="mdi-map-marker"></v-icon> <v-text v-text="role.work_model"></v-text>
+                    </v-card-subtitle>
+                    <v-card-text v-text="role.description"></v-card-text>
+                </v-card>
+            </v-col>
         </v-row>
     </v-container>
 </template>
@@ -37,35 +51,50 @@ export default {
                 {
                     name: 'Software Engineer',
                     company: 'Oracle Corporation',
-                    date: 'Sep 2024 - Present',
+                    date: {
+                        start: "Sep 2024",
+                        end: "Present",
+                    },
                     description: "Oracle Linux YUM Service",
                     work_model: "Remote",
                 },
                 {
                     name: 'Software Engineer',
                     company: 'Intel Corporation',
-                    date: 'Jan 2022 - Jul 2023',
+                    date: {
+                        start: "Jan 2022",
+                        end: "Jul 2023",
+                    },
                     description: "RTL Development and CI/CD",
                     work_model: "Remote",
                 },
                 {
                     name: 'Graduate Technical Intern',
                     company: 'Intel Corporation',
-                    date: 'Nov 2020 - Nov 2021',
+                    date: {
+                        start: "Nov 2020",
+                        end: "Nov 2021",
+                    },
                     description: "RTL Development and CI/CD",
                     work_model: "Remote",
                 },
                 {
                     name: 'Back End Python Developer',
                     company: 'Universidad Intercultural de Chiapas',
-                    date: 'Sep 2020 - Dec 2020',
-                    description: "RESTful API development with Django framework RESTful API development with Django framework RESTful API development with Django framework",
+                    date: {
+                        start: "Sep 2020",
+                        end: "Dec 2020",
+                    },
+                    description: "RESTful API development with Django framework",
                     work_model: "Remote",
                 },
                 {
                     name: 'Fullstack Developer Angular',
                     company: 'Adiante Apps',
-                    date: 'May 2020 - Sep 2020',
+                    date: {
+                        start: "May 2020",
+                        end: "Sep 2020",
+                    },
                     description: "WEB and Mobile application development using Angular",
                     work_model: "Remote",
                 },
